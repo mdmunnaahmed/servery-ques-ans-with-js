@@ -22,6 +22,27 @@
     <meta property="og:image:width" content="250">
     <meta property="og:image:height" content="200">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&family=Rubik:wght@300;400;500;600&display=swap');
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Open Sans", sans-serif;
+            font-weight: 400;
+            color: #445;
+            margin: 0;
+            padding: 0;
+        }
+        b {
+            font-weight: 600;
+        }
+        .playquiz_qntxtbox {
+            font-family: "Rubik", sans-serif;
+            color: #334;
+        }
+        .playquiz_anslist {
+            
+        }
         .ansqn {
             font-size: 20px;
         }
@@ -75,37 +96,26 @@
             }
         }
 
-        @font-face {
-            font-family: 'password';
-            font-style: normal;
-            font-weight: 400;
-            src: url(https://jsbin-user-assets.s3.amazonaws.com/rafaelcastrocouto/password.ttf);
-        }
-
-        input.key {
-            font-family: 'password';
-        }
-
         .header-container {
-            width: calc(70% + 20px);
-            margin: 10px 15%;
-            border: 1px solid black;
+            width: calc(70%);
+            margin: 10px auto;
+            border: 1px solid #c1c1c1;
             border-radius: 10px;
             overflow: hidden;
         }
 
         .container {
             width: 70%;
-            margin: 10px 15%;
-            padding: 10px;
-            border: 1px solid black;
+            margin: 10px auto;
+            padding: 15px 20px;
+            border: 1px solid #c1c1c1;
             border-radius: 10px;
         }
 
         .result-container {
             width: 70%;
-            margin: 10px 15%;
-            padding: 10px;
+            margin: 10px auto;
+            padding: 15px 20px;
             background-color: #d6f5f5;
             border-radius: 10px;
             box-shadow: 0 0 6px;
@@ -114,24 +124,33 @@
         .upper-header {
             display: flex;
             justify-content: flex-start;
-            padding: 10px !important;
+            gap: 15px;
+            padding: 15px !important;
+        }
+        #mock-exam-selector {
+            outline: none !important;
+            border-color: #ccc;
+            width: 60px;
+            background-color: white;
+            border-radius: 6px;
+            margin-left: 10px;
+            padding: 8px 10px;
         }
     </style>
 </header>
 
 <body>
     <div class="header-container">
-        <div class="row box" style="background-image: linear-gradient(to bottom, #aaccff, #ffffff);">
+        <div class="row box" style="background-image: linear-gradient(to bottom, #aaccffa3, #ffffff 80%);">
             <div class="upper-header col-md-3 col-lg-4  hidden-sm-down" style="padding: 0 10px">
-                <img class="img-fluid" style="border:1px solid #666666;border-radius:5px;" src="./image/poster.png" title="Fun Trivia" alt="Quiz about General Knowledge Questions">
+                <img class="img-fluid" style="border-radius:10px;" src="./image/poster.png" title="Fun Trivia" alt="Quiz about General Knowledge Questions">
                 <div style="margin-left: 20px;">
                     <h1>General Knowledge Questions Quiz</h1>
                     <div>
                         <h2 id="exam-title">Mock Exam 1</h2>
                         <div style="height: 20px;">
                             <label for="mockexam" style="font-size: 18px;">Choose mock exam:</label>
-                            <select name="mock-exam-selector" id="mock-exam-selector" style="height: 30px; width: 40px; margin: 0 20px">
-                            </select>
+                            <select name="mock-exam-selector" id="mock-exam-selector"></select>
                         </div>
                     </div>
                 </div>
