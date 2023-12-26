@@ -32,6 +32,7 @@
             color: #445;
             margin: 0;
             padding: 0;
+            line-height: 1.5;
         }
         b {
             font-weight: 600;
@@ -40,8 +41,34 @@
             font-family: "Rubik", sans-serif;
             color: #334;
         }
-        .playquiz_anslist {
-            
+        .playquiz_qntxtbox b {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+        .playquiz_qntxtbox b span {
+            margin-right: 5px;
+            width: 20px;
+        }
+        .playquiz_qntxtbox b p {
+            width: calc(100% - 20px);
+            margin: 0;
+        }
+        .playquiz_anslist div {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+            margin-bottom: 5px !important;
+        }
+        .playquiz_anslist div input {
+            width: 20px;
+            margin: 0;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+        .playquiz_anslist div span {
+            width: calc(100% - 20px);
+            display: inline-block;
         }
         .ansqn {
             font-size: 20px;
@@ -79,6 +106,9 @@
 
         .hrstyle {
             margin: 6px;
+        }
+        hr {
+            opacity: .5;
         }
     </style>
     <style>
@@ -135,6 +165,8 @@
             border-radius: 6px;
             margin-left: 10px;
             padding: 8px 10px;
+            color: #445;
+            font-weight: 500;
         }
     </style>
 </header>
@@ -222,25 +254,26 @@
         if (e.querySelector('input').checked) {
             return;
         }
-        e.querySelector('span').style.color = 'blue';
+        e.querySelector('span').style.color = '#111';
     }
 
     const answerOut = function (e) {
         if (e.querySelector('input').checked) {
             return;
         }
-        e.querySelector('span').style.color = 'black';
+        e.querySelector('span').style.color = '#334';
     }
 
     const answerSelected = function (e) {
-        e.parentNode.parentNode.querySelectorAll('span').forEach((e) => e.style.color = 'black')
+        e.parentNode.parentNode.querySelectorAll('span').forEach((e) => e.style.color = '#334')
         e.parentNode.querySelector('span').style.color = 'red';
     }
 
     const selectAnswer = function (e) {
         e.querySelector('input').checked = true;
-        e.parentNode.querySelectorAll('span').forEach((e) => e.style.color = 'black')
-        e.querySelector('span').style.color = 'red';
+        e.parentNode.querySelectorAll('span').forEach((e) => e.style.fontWeight = 'normal')
+        e.querySelector('span').style.color = '#000';
+        e.querySelector('span').style.fontWeight = 'bold';
     }
 
     const handleOnSubmit = function (e) {
@@ -346,7 +379,7 @@
                                 <div class="playquiz_qntxtbox">
                                     <b>
                                         <span style="color:green;">${i}.</span>
-                                        ${examInfo[`Exam${id}`][`Question${i}`].Question}
+                                        <p>${examInfo[`Exam${id}`][`Question${i}`].Question}</p>
                                     </b>
                                 </div>
                                 <br>
