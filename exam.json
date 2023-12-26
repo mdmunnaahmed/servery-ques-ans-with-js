@@ -24,7 +24,207 @@
             "Option2": "Create a Git tag of the code that is currently deployed in production. Create a Git tag for the development of the new version. Push the two tags to the CodeCommit repository.",
             "Option3": "From the main branch, create a branch of the code that is currently deployed in production. Apply an IAM policy that ensures no other users can push or merge to the branch.",
             "Option4": "Create a new CodeCommit repository for development of the new version of the application. Create a Git tag for the development of the new version.",
+            "Correct Answer": 1
+        },
+        "Question4": {
+            "Question": " A developer is building a serverless application that connects to an Amazon Aurora PostgreSQL database. The serverless application consists of hundreds of AWS Lambda functions. During every Lambda function scale out, a new database connection is made that increases database resource consumption. The developer needs to decrease the number of connections made to the database. The solution must not impact the scalability of the Lambda functions. Which solution will meet these requirements?",
+            "Option1": "Configure provisioned concurrency for each Lambda function by setting the ProvisionedConcurrentExecutions parameter to 10.",
+            "Option2": "Enable cluster cache management for Aurora PostgreSQL. Change the connection string of each Lambda function to point to cluster cache management.",
+            "Option3": "Use Amazon RDS Proxy to create a connection pool to manage the database connections. Change the connection string of each Lambda function to reference the proxy.",
+            "Option4": "Configure reserved concurrency for each Lambda function by setting the ReservedConcurrentExecutions parameter to 10.",
+            "Correct Answer": 3
+        },
+        "Question5": {
+            "Question": "A developer is setting up infrastructure by using AWS CloudFormation. If an error occurs when the resources described in the Cloud Formation template are provisioned, successfully provisioned resources must be preserved. The developer must provision and update the CloudFormation stack by using the AWS CLI. Which solution will meet these requirements?",
+            "Option1": "Add an --enable-termination-protection command line option to the create-stack command and the update- stack command.",
+            "Option2": "Add a --disable-rollback command line option to the create-stack command and the update-stack command.",
+            "Option3": "Add a --parameters ParameterKey=Preserve Resources, ParameterValue=True command line option to the create-stack command and the update-stack command.",
+            "Option4": "Add a --tags Key=Preserve Resources,Value=True command line option to the create-stack command and the update-stack command.",
+            "Correct Answer": 2
+        },
+        "Question6": {
+            "Question": "A developer is working on an application that processes operating data from loT devices. Each lot device uploads a data file once every hour to an Amazon S3 bucket. The developer wants to immediately process each data file when the data file is uploaded to Amazon S3. The developer will use an AWS Lambda function to process the data files from Amazon S3. The Lambda function is configured with the S3 bucket information where the files are uploaded. The developer wants to configure the Lambda function to immediately invoke after each data file is uploaded. Which solution will meet these requirements?",
+            "Option1": "Add an asynchronous invocation to the Lambda function. Select the S3 bucket as the source.",
+            "Option2": "Add an Amazon EventBridge event to the Lambda function. Select the S3 bucket as the source.",
+            "Option3": "Add a trigger to the Lambda function. Select the S3 bucket as the source.",
+            "Option4": "Add a layer to the Lambda function. Select the S3 bucket as the source.",
+            "Correct Answer": 3
+        },
+        "Question7": {
+            "Question": "A developer is building an application integrating an Amazon API Gateway with an AWS Lambda function. When calling the API. the developer receives the following error: Wed Nov 08 01:13:00 UTC 2017: Method completed with status: 502 What should the developer do to resolve the error?",
+            "Option1": "Change the HTTP endpoint of the API to an HTTPS endpoint.",
+            "Option2": "Change the format of the payload sent to the API Gateway.",
+            "Option3": "Change the format of the Lambda function response to the API call.",
+            "Option4": "Change the authorization header in the API call to access the Lambda function.",
+            "Correct Answer": 3
+        },
+        "Question8": {
+            "Question": "An IT department uses Amazon S3 to store sensitive images. After more than 1 year, the company moves the images into archival storage. The company rarely accesses the images, but the company wants a storage solution that maximizes resiliency. The IT department needs access to the images that have been moved to archival storage within 24 hours. Which solution will meet these requirements MOST cost-effectively?",
+            "Option1": "Use S3 Standard-Infrequent Access (S3 Standard-IA) to store the images. Use S3 Glacier Deep Archive with standard retrieval to store and retrieve archived images.",
+            "Option2": "Use S3 Standard-Infrequent Access (S3 Standard-IA) to store the images. Use S3 Glacier Deep Archive with bulk retrieval to store and retrieve archived images.",
+            "Option3": "Use S3 Intelligent-Tiering to store the images. Use S3 Glacier Deep Archive with standard retrieval to store and retrieve archived images.",
+            "Option4": "Use S3 One Zone-Infrequent Access (S3 One Zone-IA) to store the images. Use S3 Glacier Deep Archive with bulk retrieval to store and retrieve archived images.",
+            "Correct Answer": 1
+        },
+        "Question9": {
+            "Question": "A company has an application that stores data in Amazon RDS instances. The application periodically experiences surges of high traffic that cause performance problems. During periods of peak traffic, a developer notices a reduction in query speed in all database queries. The team's technical lead determines that a multi-threaded and scalable caching solution should be used to offload the heavy read traffic. The solution needs to improve performance. Which solution will meet these requirements with the LEAST complexity?",
+            "Option1": "Use Amazon ElastiCache for Memcached to offload read requests from the main database.",
+            "Option2": "Replicate the data to Amazon DynamoDSet up a DynamoDB Accelerator (DAX) cluster.",
+            "Option3": "Configure the Amazon RDS instances to use Multi-AZ deployment with one standby instance. Offload read requests from the main database to the standby instance.",
+            "Option4": "Use Amazon ElastiCache for Redis to offload read requests from the main database.",
+            "Correct Answer": 1
+        },
+        "Question10": {
+            "Question": "A company has a serverless application on AWS that uses a fleet of AWS Lambda functions that have aliases. The company regularly publishes new Lambda function by using an in-house deployment solution. The company wants to improve the release process and to use traffic shifting. A newly published function version should initially make available only to a fixed percentage of production users. Which solution will meet these requirements?",
+            "Option1": "Configure routing on the alias of the new function by using a weighted alias.",
+            "Option2": "Configure a canary deployment type for Lambda.",
+            "Option3": "Configure routing on the new versions by using environment variables.",
+            "Option4": "Configure a linear deployment type for Lambda.",
+            "Correct Answer": 1
+        },
+        "Question11": {
+            "Question": "A developer is creating a new REST API by using Amazon API Gateway and AWS Lambda. The development team tests the API and validates responses for the known use cases before deploying the API to the production environment. The developer wants to make the REST API available for testing by using API Gateway locally. Which AWS Serverless Application Model Command Line Interface (AWS SAM CLI) subcommand will meet these requirements?",
+            "Option1": "Sam local invoke",
+            "Option2": "Sam local generate-event",
+            "Option3": "Sam local start-lambda",
+            "Option4": "Sam local start-api",
             "Correct Answer": 4
+        },
+        "Question12": {
+            "Question": "A developer has created an AWS Lambda function that makes queries to an Amazon Aurora MySQL DB instance. When the developer performs a test, the DB instance shows an error for too many connections. Which solution will meet these requirements with the LEAST operational effort?",
+            "Option1": "Create a read replica for the DB instance. Query the replica DB instance instead of the primary DB instance.",
+            "Option2": "Migrate the data to an Amazon DynamoDB database.",
+            "Option3": "Configure the Amazon Aurora MySQL DB instance for Multi-AZ deployment.",
+            "Option4": "Create a proxy in Amazon RDS Proxy. Query the proxy instead of the DB instance.",
+            "Correct Answer": 4
+        },
+        "Question13": {
+            "Question": "A company needs to set up secure database credentials for all its AWS Cloud resources. The company's resources include Amazon RDS DB instances, Amazon DocumentDB clusters, and Amazon Aurora DB instances. The company's security policy mandates that database credentials be encrypted at rest and rotated at a regular interval. Which solution will meet these requirements MOST securely?",
+            "Option1": "Set up IAM database authentication for token-based access. Generate user tokens to provide centralized access to RDS DB instances, Amazon DocumentDB clusters, and Aurora DB instances.",
+            "Option2": "Create parameters for the database credentials in AWS Systems Manager Parameter Store. Set the Type parameter to SecureString. Set up automatic rotation on the parameters.",
+            "Option3": "Store the database access credentials as an encrypted Amazon S3 object in an S3 bucket. Block all public access on the S3 bucket. Use S3 server-side encryption to set up automatic rotation on the encryption key.",
+            "Option4": "Create an AWS Lambda function by using the Secrets Manager Rotation Template template in the AWS Secrets Manager console. Create secrets for the database credentials in Secrets Manager. Set up secrets rotation on a schedule.",
+            "Correct Answer": 4
+        },
+        "Question14": {
+            "Question": "A company built a new application in the AWS Cloud. The company automated the bootstrapping of new resources with an Auto Scaling group by using AWS CloudFormation templates. The bootstrap scripts contain sensitive data. The company needs a solution that is integrated with CloudFormation to manage the sensitive data in the bootstrap scripts. Which solution will meet these requirements in the MOST secure way?",
+            "Option1": "Put the sensitive data into a CloudFormation parameter. Encrypt the CloudFormation templates by using an AWS Key Management Service (AWS KMS) key.",
+            "Option2": "Put the sensitive data into an Amazon S3 bucket. Update the CloudFormation templates to download the object from Amazon S3 during bootstrap.",
+            "Option3": "Put the sensitive data into AWS Systems Manager Parameter Store as a secure string parameter. Update the CloudFormation templates to use dynamic references to specify template values.",
+            "Option4": "Put the sensitive data into Amazon Elastic File System (Amazon EFS). Enforce EFS encryption after file system creation. Update the CloudFormation templates to retrieve data from Amazon EFS.",
+            "Correct Answer": 3
+        },
+        "Question15": {
+            "Question": "A company wants to automate part of its deployment process. A developer needs to automate the process of checking for and deleting unused resources that supported previously deployed stacks but that are no longer used. The company has a central application that uses the AWS Cloud Development Kit (AWS CDK) to manage all deployment stacks. The stacks are spread out across multiple accounts. The developer's solution must integrate as seamlessly as possible within the current deployment process. Which solution will meet these requirements with the LEAST amount of configuration?",
+            "Option1": "In the central AWS CDK application, write a handler function in the code that uses AWS SDK calls to check for and delete unused resources. Create an AWS CloudFormation template from a JSON file. Use the template to attach the function code to an AWS Lambda function and to invoke the Lambda function when the deployment stack runs.",
+            "Option2": "In the central AWS CDK application, write a handler function in the code that uses AWS SDK calls to check for and delete unused resources. Create an AWS CDK custom resource. Use the custom resource to attach the function code to an AWS Lambda function and to invoke the Lambda function when the deployment stack runs.",
+            "Option3": "In the central AWS CDK, write a handler function in the code that uses AWS SDK calls to check for and delete unused resources. Create an API in AWS Amplify. Use the API to attach the function code to an AWS Lambda function and to invoke the Lambda function when the deployment stack runs.",
+            "Option4": "In the AWS Lambda console, write a handler function in the code that uses AWS SDK calls to check for and delete unused resources. Create an AWS CDK custom resource. Use the custom resource to import the Lambda function into the stack and to invoke the Lambda function when the deployment stack runs.",
+            "Correct Answer": 2
+        },
+        "Question5": {
+            "Question": "",
+            "Option1": "",
+            "Option2": "",
+            "Option3": "",
+            "Option4": "",
+            "Correct Answer": 3
+        },
+        "Question5": {
+            "Question": "",
+            "Option1": "",
+            "Option2": "",
+            "Option3": "",
+            "Option4": "",
+            "Correct Answer": 3
+        },
+        "Question5": {
+            "Question": "",
+            "Option1": "",
+            "Option2": "",
+            "Option3": "",
+            "Option4": "",
+            "Correct Answer": 3
+        },
+        "Question5": {
+            "Question": "",
+            "Option1": "",
+            "Option2": "",
+            "Option3": "",
+            "Option4": "",
+            "Correct Answer": 3
+        },
+        "Question5": {
+            "Question": "",
+            "Option1": "",
+            "Option2": "",
+            "Option3": "",
+            "Option4": "",
+            "Correct Answer": 3
+        },
+        "Question5": {
+            "Question": "",
+            "Option1": "",
+            "Option2": "",
+            "Option3": "",
+            "Option4": "",
+            "Correct Answer": 3
+        },
+        "Question5": {
+            "Question": "",
+            "Option1": "",
+            "Option2": "",
+            "Option3": "",
+            "Option4": "",
+            "Correct Answer": 3
+        },
+        "Question5": {
+            "Question": "",
+            "Option1": "",
+            "Option2": "",
+            "Option3": "",
+            "Option4": "",
+            "Correct Answer": 3
+        },
+        "Question5": {
+            "Question": "",
+            "Option1": "",
+            "Option2": "",
+            "Option3": "",
+            "Option4": "",
+            "Correct Answer": 3
+        },
+        "Question5": {
+            "Question": "",
+            "Option1": "",
+            "Option2": "",
+            "Option3": "",
+            "Option4": "",
+            "Correct Answer": 3
+        },
+        "Question5": {
+            "Question": "",
+            "Option1": "",
+            "Option2": "",
+            "Option3": "",
+            "Option4": "",
+            "Correct Answer": 3
+        },
+        "Question5": {
+            "Question": "",
+            "Option1": "",
+            "Option2": "",
+            "Option3": "",
+            "Option4": "",
+            "Correct Answer": 3
+        },
+        "Question5": {
+            "Question": "",
+            "Option1": "",
+            "Option2": "",
+            "Option3": "",
+            "Option4": "",
+            "Correct Answer": 3
         }
     }
 }
