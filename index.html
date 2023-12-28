@@ -23,9 +23,11 @@
     <meta property="og:image:height" content="200">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&family=Rubik:wght@300;400;500;600&display=swap');
+
         * {
             box-sizing: border-box;
         }
+
         body {
             font-family: "Open Sans", sans-serif;
             font-weight: 400;
@@ -34,42 +36,51 @@
             padding: 0;
             line-height: 1.5;
         }
+
         b {
             font-weight: 600;
         }
+
         .playquiz_qntxtbox {
             font-family: "Rubik", sans-serif;
             color: #334;
         }
+
         .playquiz_qntxtbox b {
             display: flex;
             gap: 10px;
             align-items: flex-start;
         }
+
         .playquiz_qntxtbox b span {
             margin-right: 5px;
             width: 17px;
         }
+
         .playquiz_qntxtbox b p {
             width: calc(100% - 20px);
             margin: 0;
         }
+
         .playquiz_anslist div {
             display: flex;
             gap: 10px;
             align-items: flex-start;
             margin-bottom: 5px !important;
         }
+
         .playquiz_anslist div input {
             width: 20px;
             margin: 0;
             flex-shrink: 0;
             margin-top: 4px;
         }
+
         .playquiz_anslist div span {
             width: calc(100% - 20px);
             display: inline-block;
         }
+
         .ansqn {
             font-size: 20px;
         }
@@ -107,8 +118,16 @@
         .hrstyle {
             margin: 6px;
         }
+
         hr {
             opacity: .5;
+        }
+        input[type='submit'] {
+            background-color: white;
+            border: none;
+            border: 1px solid #ccc;
+            color: #445;
+            font-size: 18px;
         }
     </style>
     <style>
@@ -157,6 +176,7 @@
             gap: 15px;
             padding: 15px !important;
         }
+
         #mock-exam-selector {
             outline: none !important;
             border-color: #ccc;
@@ -407,7 +427,7 @@
                         <div class="row box">
                             <div class="col-12 nopadmobile">
                                 <br>
-                                <div style="text-align:center;"><input type="submit" style="height:50px; width:250px;font-size:20px;font-weight:bold;text-align:center;color:#0000ff;background-color:#cccccc;" value="Submit your Answers!"></div>
+                                <div style="text-align:center;"><input type="submit" style="height:50px; width:250px;font-weight:bold;text-align:center;" value="Submit your Answers!"></div>
                                 <br>
                             </div>
                         </div>
@@ -424,6 +444,7 @@
         .then((response) => response.json())
         .then((json) => {
             examInfo = json;
+            console.log(examInfo);
             for (let i = 1; i <= Object.keys(examInfo).length; i++) {
                 let option = document.createElement('option');
                 option.value = i;

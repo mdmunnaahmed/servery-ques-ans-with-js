@@ -1,0 +1,46 @@
+{
+  "Exam1": {
+    "id": 1,
+    "quesNum": 5,
+    "Question1": {
+      "Question": "A company uses Amazon API Gateway to expose a set of APIs to customers. The APIs have caching enabled in API Gateway. Customers need a way to invalidate the cache for each API when they test the API. What should a developer do to give customers the ability to invalidate the API cache?",
+      "Option1": "Ask the customers to use AWS credentials to call the InvalidateCache API operation.",
+      "Option2": "Attach an InvalidateCache policy to the IAM execution role that the customers use to invoke the API. Ask the customers to send a request that contains the Cache-Control:max-age=0 HTTP header when they make an API call.",
+      "Option3": "Ask the customers to use the AWS SDK API Gateway class to invoke the InvalidateCache API operation.",
+      "Option4": "Attach an InvalidateCache policy to the IAM execution role that the customers use to invoke the API. Ask the customers to add the INVALIDATE_CACHE query string parameter when they make an API call.",
+      "Correct Answer": 2
+    },
+    "Question2": {
+      "Question": "A developer is creating an AWS CloudFormation stack. The stack contains IAM resources with custom names. When the developer tries to deploy the stack, they receive an InsufficientCapabilities error. What should the developer do to resolve this issue?",
+      "Option1": "Specify the CAPABILITY_AUTO_EXPAND capability in the CloudFormation stack.",
+      "Option2": "Use an administrators role to deploy IAM resources with CloudFormation.",
+      "Option3": "Specify the CAPABILITY_IAM capability in the CloudFormation stack.",
+      "Option4": "Specify the CAPABILITY_NAMED_IAM capability in the CloudFormation stack.",
+      "Correct Answer": 4
+    },
+    "Question3": {
+      "Question": "A developer is preparing to begin development of a new version of an application. The previous version of the application is deployed in a production environment. The developer needs to deploy fixes and updates to the current version during the development of the new version of the application. The code for the new version of the application is stored in AWS CodeCommit. Which solution will meet these requirements?",
+      "Option1": "From the main branch, create a feature branch for production bug fixes. Create a second feature branch from the main branch for development of the new version.",
+      "Option2": "Create a Git tag of the code that is currently deployed in production. Create a Git tag for the development of the new version. Push the two tags to the CodeCommit repository.",
+      "Option3": "From the main branch, create a branch of the code that is currently deployed in production. Apply an IAM policy that ensures no other users can push or merge to the branch.",
+      "Option4": "Create a new CodeCommit repository for development of the new version of the application. Create a Git tag for the development of the new version.",
+      "Correct Answer": 1
+    },
+    "Question4": {
+      "Question": " A developer is building a serverless application that connects to an Amazon Aurora PostgreSQL database. The serverless application consists of hundreds of AWS Lambda functions. During every Lambda function scale out, a new database connection is made that increases database resource consumption. The developer needs to decrease the number of connections made to the database. The solution must not impact the scalability of the Lambda functions. Which solution will meet these requirements?",
+      "Option1": "Configure provisioned concurrency for each Lambda function by setting the ProvisionedConcurrentExecutions parameter to 10.",
+      "Option2": "Enable cluster cache management for Aurora PostgreSQL. Change the connection string of each Lambda function to point to cluster cache management.",
+      "Option3": "Use Amazon RDS Proxy to create a connection pool to manage the database connections. Change the connection string of each Lambda function to reference the proxy.",
+      "Option4": "Configure reserved concurrency for each Lambda function by setting the ReservedConcurrentExecutions parameter to 10.",
+      "Correct Answer": 3
+    },
+    "Question5": {
+      "Question": "A developer is setting up infrastructure by using AWS CloudFormation. If an error occurs when the resources described in the Cloud Formation template are provisioned, successfully provisioned resources must be preserved. The developer must provision and update the CloudFormation stack by using the AWS CLI. Which solution will meet these requirements?",
+      "Option1": "Add an --enable-termination-protection command line option to the create-stack command and the update- stack command.",
+      "Option2": "Add a --disable-rollback command line option to the create-stack command and the update-stack command.",
+      "Option3": "Add a --parameters ParameterKey=Preserve Resources, ParameterValue=True command line option to the create-stack command and the update-stack command.",
+      "Option4": "Add a --tags Key=Preserve Resources,Value=True command line option to the create-stack command and the update-stack command.",
+      "Correct Answer": 2
+    }
+  }
+}
