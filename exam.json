@@ -1,7 +1,7 @@
 {
   "Exam1": {
     "id": 1,
-    "quesNum": 100,
+    "quesNum": 75,
     "Question1": {
       "Question": "A company uses Amazon API Gateway to expose a set of APIs to customers. The APIs have caching enabled in API Gateway. Customers need a way to invalidate the cache for each API when they test the API. What should a developer do to give customers the ability to invalidate the API cache?",
       "Option1": "Ask the customers to use AWS credentials to call the InvalidateCache API operation.",
@@ -609,6 +609,306 @@
       "Option3": "Store the database credentials in AWS Systems Manager Parameter Store secure strings. Configure a 30-day schedule for the secure strings.",
       "Option4": "Store the database credentials in an Amazon S3 bucket that uses server-side encryption with customer- provided encryption keys (SSE-C). Configure a 30-day key rotation schedule for the customer key.",
       "Correct Answer": 1
+    }
+  },
+  "Exam2": {
+    "id": 2,
+    "quesNum": 75,
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
+    },
+    "Question1": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 4
     }
   }
 }
