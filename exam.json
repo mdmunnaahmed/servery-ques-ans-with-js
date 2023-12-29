@@ -1,5 +1,5 @@
 {
-  "Exam1": {
+  "Exam2": {
     "id": 1,
     "quesNum": 75,
     "Question1": {
@@ -611,7 +611,7 @@
       "Correct Answer": 1
     }
   },
-  "Exam2": {
+  "Exam1": {
     "id": 1,
     "quesNum": 75,
     "Question1": {
@@ -1016,6 +1016,206 @@
       "Option3": "CodeDeployDefault.LambdaCanary10Percent|15Minutes",
       "Option4": "CodeDeployDefault.ECSLinear10PercentEvery1Minutes",
       "Correct Answer": 4
+    },
+    "Question51": {
+      "Question": "A developer wants to debug an application by searching and filtering log data. The application logs are stored in Amazon CloudWatch Logs. The developer creates a new metric filter to count exceptions in the application logs. However, no results are returned from the logs. <br>What is the reason that no filtered results are being returned?",
+      "Option1": "A setup of the Amazon CloudWatch interface VPC endpoint is required for filtering the CloudWatch Logs in the VPC.",
+      "Option2": "CloudWatch Logs only publishes metric data for events that happen after the filter is created.",
+      "Option3": "The log group for CloudWatch Logs should be first streamed to Amazon OpenSearch Service before metric filtering returns the results.",
+      "Option4": "Metric data points for logs groups can be filtered only after they are exported to an Amazon S3 bucket.",
+      "Correct Answer": 2
+    },
+    "Question52": {
+      "Question": "Company A has an S3 bucket containing premier content that they intend to make available to only paid subscribers of their website. The S3 bucket currently has default permissions of all objects being private to prevent inadvertent exposure of the premier content to non-paying website visitors. <br>How can Company A provide only paid subscribers the ability to download a premier content file in the S3 bucket?",
+      "Option1": "Apply a bucket policy that grants anonymous users to download the content from the S3 bucket",
+      "Option2": "Generate a pre-signed object URL for the premier content file when a paid subscriber requests a download",
+      "Option3": "Add a bucket policy that requires Multi-Factor Authentication for requests to access the $3 bucket objects",
+      "Option4": "Enable server side encryption on the S3 bucket for data protection against the non-paying website visitors",
+      "Correct Answer": 2
+    },
+    "Question53": {
+      "Question": "An application under development is required to store hundreds of video files. The data must be encrypted within the application prior to storage, with a unique key for each video file. <br>How should the developer code the application?",
+      "Option1": "Use the KMS Encrypt API to encrypt the data. Store the encrypted data key and data.",
+      "Option2": "Use a cryptography library to generate an encryption key for the application. Use the encryption key to encrypt the data. Store the encrypted data.",
+      "Option3": "Use the KMS GenerateDataKey API to get a data key. Encrypt the data with the data key. Store the encrypted data key and data.",
+      "Option4": "Upload the data to an S3 bucket using server side-encryption with an AWS KMS key.",
+      "Correct Answer": 3
+    },
+    "Question54": {
+      "Question": "A developer deployed an application to an Amazon EC2 instance. The application needs to know the public IPv4 address of the instance. <br>How can the application find this information?",
+      "Option1": "Query the instance metadata from http://169.254.169.254/latest/meta-data/.",
+      "Option2": "Query the instance user data from http://169.254.169.254/latest/user-data/.",
+      "Option3": "Query the Amazon Machine Image (AMI) information from http://169.254.169.254/latest/meta-data/ami/.",
+      "Option4": "Check the hosts file of the operating system.",
+      "Correct Answer": 1
+    },
+    "Question55": {
+      "Question": "A developer is writing unit tests for a new application that will be deployed on AWS. The developer wants to validate all pull requests with unit tests and merge the code with the main branch only when all tests pass. <br>The developer stores the code in AWS CodeCommit and sets up AWS CodeBuild to run the unit tests. <br>The developer creates an AWS Lambda function to start the CodeBuild task. The developer needs to identify the CodeCommit events in an Amazon EventBridge event that can invoke the Lambda function when a pull request is created or updated. <br>Which CodeCommit event will meet these requirements?",
+      "Option1": "{ <br> 'source': ['aws.codecommit'], <br> 'detail': { <br> 'event': ['pullRequestMergeStatusUpdated'] <br> } <br>}",
+      "Option2": "{ <br> 'source': ['aws.codecommit'], <br> 'detail': { <br> 'event': ['pullRequestApprovalRuleCreated'] <br> } <br>}",
+      "Option3": "{ <br> 'source': ['aws.codecommit'], <br> 'detail': { <br> 'event': ['pullRequestSourceBranchUpdated', 'pullRequestCreated'] <br> } <br>}",
+      "Option4": "{ <br> 'source': ['aws.codecommit'], <br> 'detail': { <br> 'event': ['pullRequestUpdated', 'pullRequestSourceBranchCreated'] <br> } <br>}",
+      "Correct Answer": 3
+    },
+    "Question56": {
+      "Question": "A developer created an AWS Lambda function that accesses resources in a VPC. The Lambda function polls an Amazon Simple Queue Service (Amazon SQS) queue for new messages through a VPC endpoint. Then the function calculates a rolling average of the numeric values that are contained in the messages. After initial tests of the Lambda function, the developer found that the value of the rolling average that the function returned was not accurate. <br>How can the developer ensure that the function calculates an accurate rolling average?",
+      "Option1": "Set the function's reserved concurrency to 1. Calculate the rolling average in the function. Store the calculated rolling average in Amazon ElastiCache.",
+      "Option2": "Modify the function to store the values in Amazon ElastiCache. When the function initializes, use the previous values from the cache to calculate the rolling average.",
+      "Option3": "Set the function's provisioned concurrency to 1. Calculate the rolling average in the function. Store the calculated rolling average in Amazon ElastiCache.",
+      "Option4": "Modify the function to store the values in the function's layers. When the function initializes, use the previously stored values to calculate the rolling average.",
+      "Correct Answer": 2
+    },
+    "Question57": {
+      "Question": "A company runs an application on AWS. The company deployed the application on Amazon EC2 instances. The application stores data on Amazon Aurora. <br>The application recently logged multiple application-specific custom DECRYP_ERROR errors to Amazon CloudWatch logs. The company did not detect the issue until the automated tests that run every 30 minutes failed. A developer must implement a solution that will monitor for the custom errors and alert a development team in real time when these errors occur in the production environment. <br>Which solution will meet these requirements with the LEAST operational overhead?",
+      "Option1": "Configure the application to create a custom metric and to push the metric to CloudWatch. Create an AWS CloudTrail alarm. Configure the CloudTrail alarm to use an Amazon Simple Notification Service (Amazon SNS) topic to send notifications.",
+      "Option2": "Create an AWS Lambda function to run every 5 minutes to scan the CloudWatch logs for the keyword DECRYP_ERROR. Configure the Lambda function to use Amazon Simple Notification Service (Amazon SNS) to send a notification.",
+      "Option3": "Use Amazon CloudWatch Logs to create a metric filter that has a filter pattern for DECRYP_ERROR. Create a CloudWatch alarm on this metric for a threshold >=1. Configure the alarm to send Amazon Simple Notification Service (Amazon SNS) notifications.",
+      "Option4": "Install the CloudWatch unified agent on the EC2 instance. Configure the application to generate a metric for the keyword DECRYP_ERROR errors. Configure the agent to send Amazon Simple Notification Service (Amazon SNS) notifications.",
+      "Correct Answer": 3   
+    },
+    "Question58": {
+      "Question": "A developer creates a VPC named VPC-A that has public and private subnets. The developer also creates an Amazon RDS database inside the private subnet of VPC-A. To perform some queries, the developer creates an AWS Lambda function in the default VPC. The Lambda function has code to access the RDS database. When the Lambda function runs, an error message indicates that the function cannot connect to the RDS database. <br>How can the developer solve this problem?",
+      "Option1": "Modify the RDS security group. Add a rule to allow traffic from all the ports from the VPC CIDR block.",
+      "Option2": "Redeploy the Lambda function in the same subnet as the RDS instance. Ensure that the RDS security group allows traffic from the Lambda function.",
+      "Option3": "Create a security group for the Lambda function. Add a new rule in the RDS security group to allow traffic from the new Lambda security group.",
+      "Option4": "Create an IAM role. Attach a policy that allows access to the RDS database. Attach the role to the Lambda function.",
+      "Correct Answer": 3
+    },
+    "Question59": {
+      "Question": "A developer is working on an existing application that uses Amazon DynamoDB as its data store. The DynamoDB table has the following attributes: partNumber (partition key), vendor (sort key), description, productFamily, and productType. When the developer analyzes the usage patterns, the developer notices that there are application modules that frequently look for a list of products based on the productFamily and product Type attributes. <br>The developer wants to make changes to the application to improve performance of the query operations. <br>Which solution will meet these requirements?",
+      "Option1": "Create a global secondary index (GSI) with productFamily as the partition key and productType as the sort key.",
+      "Option2": "Create a local secondary index (LSI) with productFamily as the partition key and product Type as the sort key.",
+      "Option3": "Recreate the table. Add partNumber as the partition key and vendor as the sort key. During table creation, add a local secondary index (LSI) with productFamily as the partition key and productType as the sort key.",
+      "Option4": "Update the queries to use Scan operations with productFamily as the partition key and productType as the sort key.",
+      "Correct Answer": 1
+    },
+    "Question60": {
+      "Question": "An engineer created an A/B test of a new feature on an Amazon CloudWatch Evidently project. The engineer configured two variations of the feature (Variation A and Variation B) for the test. The engineer wants to work exclusively with Variation A. The engineer needs to make updates so that Variation A is the only variation that appears when the engineer hits the application's endpoint. <br>Which solution will meet this requirement?",
+      "Option1": "Add an override to the feature. Set the identifier of the override to the engineer's user ID. Set the variation to Variation A.",
+      "Option2": "Add an override to the feature. Set the identifier of the override to Variation A. Set the variation to 100%.",
+      "Option3": "Add an experiment to the project. Set the identifier of the experiment to Variation B. Set the variation to 0%.",
+      "Option4": "Add an experiment to the project. Set the identifier of the experiment to the AWS account's account ID.Set the variation to Variation A.",
+      "Correct Answer": 1
+    },
+    "Question61": {
+      "Question": " A developer is creating a mobile application that will not require users to log in. <br>What is the MOST efficient method to grant users access to AWS resources?",
+      "Option1": "Use an identity provider to securely authenticate with the application.",
+      "Option2": "Create an AWS Lambda function to create an IAM user when a user accesses the application.",
+      "Option3": "Create credentials using AWS KMS and apply these credentials to users when using the application.",
+      "Option4": "Use Amazon Cognito to associate unauthenticated users with an IAM role that has limited access to resources.",
+      "Correct Answer": 4
+    },
+    "Question62": {
+      "Question": " A company is building a serverless application that uses AWS Lambda functions. The company needs to create a set of test events to test Lambda functions in a development environment. The test events will be created once and then will be used by all the developers in an IAM developer group. The test events must be editable by any of the IAM users in the IAM developer group. <br>Which solution will meet these requirements?",
+      "Option1": "Create and store the test events in Amazon S3 as JSON objects. Allow S3 bucket access to all IAM users.",
+      "Option2": "Create the test events. Configure the event sharing settings to make the test events shareable.",
+      "Option3": "Create and store the test events in Amazon DynamoDB. Allow access to DynamoDB by using IAM roles.",
+      "Option4": "Create the test events. Configure the event sharing settings to make the test events private.",
+      "Correct Answer": 2
+    },
+    "Question63": {
+      "Question": "A company has installed smart meters in all its customer locations. The smart meters measure power usage at 1-minute intervals and send the usage readings to a remote endpoint for collection. <br>The company needs to create an endpoint that will receive the smart meter readings and store the readings in a database. The company wants to store the location ID and timestamp information. <br>The company wants to give its customers low-latency access to their current usage and historical usage on demand. The company expects demand to increase significantly. The solution must not impact performance or include downtime while scaling. <br>Which solution will meet these requirements MOST cost-effectively?",
+      "Option1": "Store the smart meter readings in an Amazon RDS database. Create an index on the location ID and timestamp columns. Use the columns to filter on the customers' data.",
+      "Option2": "Store the smart meter readings in an Amazon DynamoDB table. Create a composite key by using the location ID and timestamp columns. Use the columns to filter on the customers' data.",
+      "Option3": "Store the smart meter readings in Amazon ElastiCache for Redis. Create a SortedSet key by using the location ID and timestamp columns. Use the columns to filter on the customers' data.",
+      "Option4": "Store the smart meter readings in Amazon S3. Partition the data by using the location ID and timestamp columns. Use Amazon Athena to filter on the customers' data.",
+      "Correct Answer": 2
+    },
+    "Question64": {
+      "Question": "A company has a critical application on AWS. The application exposes an HTTP API by using Amazon API Gateway. The API is integrated with an AWS Lambda function. The application stores data in an Amazon RDS for MySQL DB instance with 2 virtual CPUs (vCPUs) and 64 GB of RAM. <br>Customers have reported that some of the API calls return HTTP 500 Internal Server Error responses. <br>Amazon CloudWatch Logs shows errors for 'too many connections.' The errors occur during peak usage times that are unpredictable. <br>The company needs to make the application resilient. The database cannot be down outside of scheduled maintenance hours. <br>Which solution will meet these requirements?",
+      "Option1": "Decrease the number of vPUs for the DB instance. Increase the max_connections setting.",
+      "Option2": "Use Amazon RDS Proxy to create a proxy that connects to the DB instance. Update the Lambda function to connect to the proxy.",
+      "Option3": "Add a CloudWatch alarm that changes the DB instance class when the number of connections increases to more than 1,000.",
+      "Option4": "Add an Amazon EventBridge rule that increases the max_connections setting of the DB instance when CPU utilization is above 75%.",
+      "Correct Answer": 2
+    },
+    "Question65": {
+      "Question": "A developer is building a new application on AWS. The application uses an AWS Lambda function that retrieves information from an Amazon DynamoDB table. The developer hard coded the DynamoDB table name into the Lambda function code. The table name might change over time. The developer does not want to modify the Lambda code if the table name changes. <br>Which solution will meet these requirements MOST efficiently?",
+      "Option1": "Create a Lambda environment variable to store the table name. Use the standard method for the programming language to retrieve the variable.",
+      "Option2": "Store the table name in a file. Store the file in the /tmp folder. Use the SDK for the programming language to retrieve the table name.",
+      "Option3": "Create a file to store the table name. Zip the file and upload the file to the Lambda layer. Use the SDK for the programming language to retrieve the table name.",
+      "Option4": "Create a global variable that is outside the handler in the Lambda function to store the table name.",
+      "Correct Answer": 1
+    },
+    "Question66": {
+      "Question": "A developer is migrating some features from a legacy monolithic application to use AWS Lambda functions instead. The application currently stores data in an Amazon Aurora DB cluster that runs in private subnets in a VPC. The AWS account has one VPC deployed. The Lambda functions and the DB cluster are deployed in the same AWS Region in the same AWS account. <br>The developer needs to ensure that the Lambda functions can securely access the DB cluster without crossing the public internet. <br>Which solution will meet these requirements?",
+      "Option1": "Configure the DB cluster's public access setting to Yes.",
+      "Option2": "Configure an Amazon RDS database proxy for he Lambda functions.",
+      "Option3": "Configure a NAT gateway and a security group for the Lambda functions.",
+      "Option4": "Configure the VPC, subnets, and a security group for the Lambda functions.",
+      "Correct Answer": 4
+    },
+    "Question67": {
+      "Question": "A developer is incorporating AWS X-Ray into an application that handles personal identifiable information (PIl). The application is hosted on Amazon EC2 instances. The application trace messages include encrypted PIl and go to Amazon CloudWatch. The developer needs to ensure that no PIl goes outside of the EC2 instances. <br>Which solution will meet these requirements?",
+      "Option1": "Manually instrument the X-Ray SDK in the application code.",
+      "Option2": "Use the X-Ray auto-instrumentation agent.",
+      "Option3": "Use Amazon Macie to detect and hide PIl. Call the X-Ray API from AWS Lambda.",
+      "Option4": "Use AWS Distro for Open Telemetry.",
+      "Correct Answer": 1
+    },
+    "Question68": {
+      "Question": " A company has deployed an application on AWS Elastic Beanstalk. The company has configured the Auto Scaling group that is associated with the Elastic Beanstalk environment to have five Amazon EC2 instances. If the capacity is fewer than four EC2 instances during the deployment, application performance degrades. The company is using the all-at-once deployment policy. <br>What is the MOST cost-effective way to solve the deployment issue?",
+      "Option1": "Change the Auto Scaling group to six desired instances.",
+      "Option2": "Change the deployment policy to traffic splitting. Specify an evaluation time of 1 hour.",
+      "Option3": "Change the deployment policy to rolling with additional batch. Specify a batch size of 1.",
+      "Option4": "Change the deployment policy to rolling. Specify a batch size of 2.",
+      "Correct Answer": 3
+    },
+    "Question69": {
+      "Question": "A company is building a web application on AWS. When a customer sends a request, the application will generate reports and then make the reports available to the customer within one hour. <br>Reports should be accessible to the customer for 8 hours. Some reports are larger than 1 MB. Each report is unique to the customer. The application should delete all reports that are older than 2 days. <br>Which solution will meet these requirements with the LEAST operational overhead?",
+      "Option1": "A. Generate the reports and then store the reports as Amazon DynamoDB items that have a specified TTL. Generate a URL that retrieves the reports from DynamoDB. Provide the URL to customers through the web application.",
+      "Option2": "Generate the reports and then store the reports in an Amazon S3 bucket that uses server-side encryption. Attach the reports to an Amazon Simple Notification Service (Amazon SNS) message. Subscribe the customer to email notifications from Amazon SNS.",
+      "Option3": "C. Generate the reports and then store the reports in an Amazon $3 bucket that uses server-side encryption. Generate a presigned URL that contains an expiration date Provide the URL to customers through the web application. Add S3 Lifecycle configuration rules to the S3 bucket to delete old reports.",
+      "Option4": "Generate the reports and then store the reports in an Amazon RDS database with a date stamp. Generate an URL that retrieves the reports from the RDS database. Provide the URL to customers through the web application. Schedule an hourly AWS Lambda function to delete database records that have expired date stamps.",
+      "Correct Answer": 3
+    },
+    "Question70": {
+      "Question": "An ecommerce company is using an AWS Lambda function behind Amazon API Gateway as its application tier. To process orders during checkout, the application calls a POST API from the frontend. <br>The POST API invokes the Lambda function asynchronously. In rare situations, the application has not processed orders. The Lambda application logs show no errors or failures. <br>What should a developer do to solve this problem?",
+      "Option1": "Inspect the frontend logs for API failures. Call the POST API manually by using the requests from the log file.",
+      "Option2": "Create and inspect the Lambda dead-letter queue. Troubleshoot the failed functions. Reprocess the events.",
+      "Option3": "Inspect the Lambda logs in Amazon CloudWatch for possible errors. Fix the errors.",
+      "Option4": "Make sure that caching is disabled for the POST API in API Gateway.",
+      "Correct Answer": 2
+    },
+    "Question71": {
+      "Question": "A developer is using AWS Amplify Hosting to build and deploy an application. The developer is receiving an increased number of bug reports from users. The developer wants to add end-to-end testing to the application to eliminate as many bugs as possible before the bugs reach production. <br>Which solution should the developer implement to meet these requirements?",
+      "Option1": "Run the amplify add test command in the Amplify CLI.",
+      "Option2": "Create unit tests in the application. Deploy the unit tests by using the amplify push command in the Amplify CLI.",
+      "Option3": "Add a test phase to the amplify.ymi build settings for the application.",
+      "Option4": "Add a test phase to the aws-exports.js file for the application.",
+      "Correct Answer": 3
+    },
+    "Question72": {
+      "Question": "A developer is testing a new tie storage application that uses an Amazon CloudFront distribution to serve content from an Amazon S3 bucket. The distribution accesses the S3 bucket by using an origin access identity (OAl). The S3 bucket's permissions explicitly deny access to all other users. <br>The application prompts users to authenticate on a login page and then uses signed cookies to allow users to access their personal storage directories. The developer has configured the distribution to use its default cache behavior with restricted viewer access and has set the origin to point to the S3 bucket. However, when the developer tries to navigate to the login page, the developer receives a 403 Forbidden error. <br>The developer needs to implement a solution to allow unauthenticated access to the login page. The solution also must keep all private content secure. <br>Which solution will meet these requirements?",
+      "Option1": "Add a second cache behavior to the distribution with the same origin as the default cache behavior. Set the path pattern for the second cache behavior to the path of the login page, and make viewer access unrestricted. Keep the default cache behavior's settings unchanged.",
+      "Option2": "Add a second cache behavior to the distribution with the same origin as the default cache behavior. Set the path pattern for the second cache behavior to *, and make viewer access restricted. Change the default cache behavior's path pattern to the path of the login page, and make viewer access unrestricted.",
+      "Option3": "Add a second origin as a failover origin to the default cache behavior. Point the failover origin to the S3 bucket. Set the path pattern for the primary origin to *, and make viewer access restricted. Set the path pattern for the failover origin to the path of the login page, and make viewer access unrestricted.",
+      "Option4": "Add a bucket policy to the S3 bucket to allow read access. Set the resource on the policy to the Amazon Resource Name (ARN) of the login page object in the S3 bucket. Add a CloudFront function to the default cache behavior to redirect unauthorized requests to the login page's S3 URL.",
+      "Correct Answer": 1
+    },
+    "Question73": {
+      "Question": "A company needs to harden its container images before the images are in a running state. The company's application uses Amazon Elastic Container Registry (Amazon ECR) as an image registry. Amazon Elastic Kubernetes Service (Amazon EKS) for compute, and an AWS CodePipeline pipeline that orchestrates a continuous integration and continuous delivery (Cl/CD worktlow. <br>Dynamic application security testing occurs in the final stage of the pipeline after a new image is deployed to a development namespace in the EKS cluster. A developer needs to place an analysis stage before this deployment to analyze the container image earlier in the CI/CD pipeline. <br>Which solution will meet these requirements with the MOST operational efficiency?",
+      "Option1": "Build the container image and run the docker scan command locally. Mitigate any findings before pushing changes to the source code repository. Write a pre-commit hook that enforces the use of this workflow before commit.",
+      "Option2": "Create a new CodePipeline stage that occurs after the container image is built. Configure ECR basic image scanning to scan on image push. Use an AWS Lambda function as the action provider. Configure the Lambda function to check the scan results and to fail the pipeline if there are findings.",
+      "Option3": "Create a new CodePipeline stage that occurs after source code has been retrieved from its repository. Run a security scanner on the latest revision of the source code. Fail the pipeline if there are findings.",
+      "Option4": "Add an action to the deployment stage of the pipeline so that the action occurs before the deployment to the EKS cluster. Configure ECR basic image scanning to scan on image push. Use an AWS Lambda function as the action provider. Configure the Lambda function to check the scan results and to fail the pipeline if there are findings.",
+      "Correct Answer": 2
+    },
+    "Question74": {
+      "Question": " An application uses Lambda functions to extract metadata from files uploaded to an S3 bucket; the metadata is stored in Amazon DynamoDB. The application starts behaving unexpectedly, and the developer wants to examine the logs of the Lambda function code for errors. <br>Based on this system configuration, where would the developer find the logs?",
+      "Option1": "Amazon S3",
+      "Option2": "AWS CloudTrail",
+      "Option3": "Amazon CloudWatch",
+      "Option4": "Amazon DynamoDB",
+      "Correct Answer": 3
+    },
+    "Question75": {
+      "Question": "A developer needs to migrate an online retail application to AWS to handle an anticipated increase in traffic. The application currently runs on two servers: one server for the web application and another server for the database. The web server renders webpages and manages session state in memory. The database server hosts a MySQL database that contains order details. When traffic to the application is heavy, the memory usage for the web server approaches 100% and the application slows down considerably. <br>The developer has found that most of the memory increase and performance decrease is related to the load of managing additional user sessions. For the web server migration, the developer will use Amazon EC2 instances with an Auto Scaling group behind an Application Load Balancer. <br>Which additional set of changes should the developer make to the application to improve the application's performance?",
+      "Option1": "Use an EC2 instance to host the MySQL database. Store the session data and the application data in the MySQL database.",
+      "Option2": "Use Amazon ElastiCache for Memcached to store and manage the session data. Use an Amazon RDS for MySQL DB instance to store the application data.",
+      "Option3": "Use Amazon ElastiCache for Memcached to store and manage the session data and the application data.",
+      "Option4": "Use the EC2 instance store to manage the session data. Use an Amazon RDS for MySQL DB instance to store the application data.",
+      "Correct Answer": 2
     }
   }
 }
