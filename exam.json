@@ -1,4 +1,619 @@
 {
+  "Exam1": {
+    "id": 1,
+    "quesNum": 75,
+
+    "Question1": {
+      "Question": "A developer is deploying a new application to Amazon Elastic Container Service (Amazon ECS). The developer needs to securely store and retrieve different types of variables. These variables include authentication information for a remote API, the URL for the API, and credentials. The authentication information and API URL must be available to all current and future deployed versions of the application across development, testing, and production environments. <br>How should the developer retrieve the variables with the FEWEST application changes?",
+      "Option1": "Update the application to retrieve the variables from AWS Systems Manager Parameter Store. Use unique paths in Parameter Store for each variable in each environment. Store the credentials in AWS Secrets Manager in each environment.",
+      "Option2": "Update the application to retrieve the variables from AWS Key Management Service (AWS KMS). Store the API URL and credentials as unique keys for each environment.",
+      "Option3": "Update the application to retrieve the variables from an encrypted file that is stored with the application. Store the API URL and credentials in unique files for each environment.",
+      "Option4": "Update the application to retrieve the variables from each of the deployed environments. Define the authentication information and API URL in the ECS task definition as unique names during the deployment process.",
+      "Correct Answer": 1
+    },
+    "Question2": {
+      "Question": "A company is implementing an application on Amazon EC2 instances. The application needs to process incoming transactions. When the application detects a transaction that is not valid, the application must send a chat message to the company's support team. To send the message, the application needs to retrieve the access token to authenticate by using the chat API. <br> A developer needs to implement a solution to store the access token. The access token must be encrypted at rest and in transit. The access token must also be accessible from other AWS accounts. <br>Which solution will meet these requirements with the LEAST management overhead?",
+      "Option1": "Use an AWS Systems Manager Parameter Store SecureString parameter that uses an AWS Key Management Service (AWS KMS) AWS managed key to store the access token. Add a resource-based policy to the parameter to allow access from other accounts. Update the IAM role of the EC2 instances with permissions to access Parameter Store. Retrieve the token from Parameter Store with the decrypt flag enabled. Use the decrypted access token to send the message to the chat.",
+      "Option2": "Encrypt the access token by using an AWS Key Management Service (AWS KMS) customer managed key. Store the access token in an Amazon DynamoDB table. Update the IAM role of the EC2 instances with permissions to access DynamoDB and AWS KMS. Retrieve the token from DynamoDDecrypt the token by using AWS KMS on the EC2 instances. Use the decrypted access token to send the message to the chat.",
+      "Option3": "Use AWS Secrets Manager with an AWS Key Management Service (AWS KMS) customer managed key to store the access token. Add a resource-based policy to the secret to allow access from other accounts. Update the IAM role of the EC2 instances with permissions to access Secrets Manager. Retrieve the token from Secrets Manager. Use the decrypted access token to send the message to the chat.",
+      "Option4": "Encrypt the access token by using an AWS Key Management Service (AWS KMS) AWS managed key. Store the access token in an Amazon S3 bucket. Add a bucket policy to the $3 bucket to allow access from other accounts. Update the IAM role of the EC instances with permissions to access Amazon $3 and AWS KMS. Retrieve the token from the $3 bucket. Decrypt the token by using AWS KMS on the EC2 instances. Use the decrypted access token to send the message to the chat.",
+      "Correct Answer": 3
+    },
+    "Question3": {
+      "Question": "A company is running Amazon EC2 instances in multiple AWS accounts. A developer needs to implement an application that collects all the lifecycle events of the EC2 instances. The application needs to store the lifecycle events in a single Amazon Simple Queue Service (Amazon SQS) queue in the company's main AWS account for further processing. <br> Which solution will meet these requirements?",
+      "Option1": "Configure Amazon EC2 to deliver the EC2 instance lifecycle events from all accounts to the Amazon EventBridge event bus of the main account. Add an EventBridge rule to the event bus of the main account that matches all EC2 instance lifecycle events. Add the SQS queue as a target of the rule.",
+      "Option2": "Use the resource policies of the SQS queue in the main account to give each account permissions to write to that SQS queue. Add to the Amazon EventBridge event bus of each account an EventBridge rule that matches all EC2 instance lifecycle events. Add the SQS queue in the main account as a target of the rule.",
+      "Option3": "Write an AWS Lambda function that scans through all EC2 instances in the company accounts to detect EC2 instance lifecycle changes. Configure the Lambda function to write a notification message to the SQS queue in the main account if the function detects an EC2 instance lifecycle change. Add an Amazon EventBridge scheduled rule that invokes the Lambda function every minute.",
+      "Option4": "Configure the permissions on the main account event bus to receive events from all accounts. Create an Amazon EventBridge rule in each account to send all the EC2 instance lifecycle events to the main account event bus. Add an EventBridge rule to the main account event bus that matches all EC2 instance lifecycle events. Set the SQS queue as a target for the rule.",
+      "Correct Answer": 4
+    },
+    "Question4": {
+      "Question": "A company is building a scalable data management solution by using AWS services to improve the speed and agility of development. The solution will ingest large volumes of data from various sources and will process this data through multiple business rules and transformations. <br> The solution requires business rules to run in sequence and to handle reprocessing of data if errors occur when the business rules run. The company needs the solution to be scalable and to require the least possible maintenance. <br> Which AWS service should the company use to manage and automate the orchestration of the data flows to meet these requirements?",
+      "Option1": "AWS Batch",
+      "Option2": "AWS Step Functions",
+      "Option3": "AWS Glue",
+      "Option4": "AWS Lambda",
+      "Correct Answer": 2
+    },
+    "Question5": {
+      "Question": "A developer has created an AWS Lambda function that is written in Python. The Lambda function reads data from objects in Amazon S3 and writes data to an Amazon DynamoDB table. The function is successfully invoked from an $3 event notification when an object is created. However, the function fails when it attempts to write to the DynamoDB table. <br>What is the MOST likely cause of this issue?",
+      "Option1": "The Lambda function's concurrency limit has been exceeded.",
+      "Option2": "DynamoDB table requires a global secondary index (GSI) to support writes.",
+      "Option3": "The Lambda function does not have IAM permissions to write to DynamoDB.",
+      "Option4": "The DynamoDB table is not running in the same Availability Zone as the Lambda function.",
+      "Correct Answer": 3
+    },
+    "Question6": {
+      "Question": "A company has an application that provides blog hosting services to its customers. The application includes an Amazon DynamoDB table with a primary key. The primary key consists of the customers' UserName as a partition key and the NumberOfBlogs as a sort key. The application stores the TotalReactionsOnBlogs as an attribute on the same DynamoDB table. <br> A developer needs to implement an operation to retrieve the top 10 customers based on the greatest number of reactions on their blogs. This operation must not consume the DynamoDB table's existing read capacity. <br> What should the developer do to meet these requirements in the MOST operationally efficient manner?",
+      "Option1": "For the existing DynamoDB table, create a new global secondary index (GSI) that has the UserName as a partition key and the TotalReactionsOnBlogs as a sort key.",
+      "Option2": "For the existing DynamoDB table, create a new local secondary index (LSI) that has the UserName as a partition key and the TotalReactionsOnBlogs as a sort key.",
+      "Option3": "Back up and restore the DynamoDB table to a new DynamoDB table. Create a new global secondary index (GSI) that has the UserName as a partition key and the TotalReactionsOnBlogs as a sort key. Delete the old DynamoDB table.",
+      "Option4": "Back up and restore the DynamoDB table to a new DynamoDB table. Create a new local secondary index (LSI) that has the UserName as a partition key and the TotalReactionsOnBlogs as a sort key. Delete the old DynamoDB table.",
+      "Correct Answer": 1
+    },
+    "Question7": {
+      "Question": "A gaming company has deployed a web portal on AWS Elastic Beanstalk. The company sometimes needs to deploy new versions three or four times in a day. <br> The company needs to deploy new features for all users as quickly as possible. The solution must minimize performance impact and must maximize availability. <br> What solution will meet these requirements?",
+      "Option1": "Use a rolling deployment policy to deploy to Amazon EC2 instances.",
+      "Option2": "Use an immutable deployment policy to deploy to Amazon EC2 instances.",
+      "Option3": "Use an all-at-once deployment policy to deploy to Amazon EC2 instances.",
+      "Option4": "Use a canary deployment strategy to deploy changes to Amazon EC2 instances.",
+      "Correct Answer": 2
+    },
+    "Question8": {
+      "Question": "A developer is using Amazon API Gateway as an HTT proxy to a backend endpoint. There are three separate environments development, testing, and production. Each environment has a corresponding stage in the API. <br> The developer needs to direct traffic to different backend endpoints for each of these stages without creating a separate API for each stage. <br> Which solution will meet these requirements?",
+      "Option1": "Add a model to the API. Add a schema to differentiate the different backend endpoints",
+      "Option2": "Create stage variables. Configure the variables in the HTT integration request of the API.",
+      "Option3": "Use API custom authorizers to create an authorizer for each of the different stages.",
+      "Option4": "Update the integration response of the API to add different backend endpoint.",
+      "Correct Answer": 2
+    },
+    "Question9": {
+      "Question": "A developer is running an application on an Amazon EC2 instance. When the application tries to read an Amazon S3 bucket the application fails. The developer notices that the associated IAM role is missing the S3 read permission. The developer needs to give the application the ability to read the S3 bucket. <br> Which solution will meet this requirement with the LEAST application disruption?",
+      "Option1": "Add the permission to the role. Terminate the existing EC2 instance. Launch a new EC2 instance",
+      "Option2": "Add the permission to the role so that the change will take effect automatically",
+      "Option3": "Add the permission to the role. Hibernate and restart the existing EC2 instance.",
+      "Option4": "Add the permission to the $3 bucket. Restart the EC2 instance.",
+      "Correct Answer": 2
+    },
+    "Question10": {
+      "Question": "A developer wants to implement Amazon EC2 Auto Scaling for a web application The developer wants to ensure that sessions will not be lost during scale-in events. <br> How can the developer maintain the session state and share it across the EC2 instances?",
+      "Option1": "Write the sessions to an Amazon Elastic Block Store (Amazon EBS) volume. Mount the EBS volume to each EC2 instance in the group.",
+      "Option2": "Store the sessions in an Amazon ElastiCache for Memcached cluster. Configure the application to use the Memcached API.",
+      "Option3": "Publish the sessions to an Amazon Simple Notification Service (Amazon SNS) topic. Subscribe each EC2 instance in the group to the topic.",
+      "Option4": "Write the sessions to an Amazon Redshift cluster. Configure the application to use the Amazon Redshift API.",
+      "Correct Answer": 2
+    },
+    "Question11": {
+      "Question": "A company uses AWS Organizations to manage multiple accounts. Account A has an application that runs on an Amazon EC2 instance. The application uses the <br> AWS CLI to run automated deployments in Account.'|An administrator set up cross-account access by using an EC2 IAM service role in Account A and an IAM role in Account. 'l <br> The application uses the following command to assume the IAM role in Account 'Ibut is unable to deploy anything in Account. 'laws sts assume-role -role-arn 'am:aws:iam::<AccountB-ID>:role/AccountB-Role' role-session-name AccountB-Role-Session <br> Which step is needed next so that the application can successfully use the credentials that it obtains by using the role in Account B?",
+      "Option1": "Configure the access key and secret access key of a valid IAM user from Account 'lin the environment variables.",
+      "Option2": "Configure the access key, secret access key, and token from the assume-role command in the environment variables.",
+      "Option3": "Create a CLI profile for the EC2 IAM service role in the AWS configuration file.",
+      "Option4": "Delete any access keys and secret access keys in the environment variables.",
+      "Correct Answer": 2
+    },
+    "Question12": {
+      "Question": "A developer assumes a role with the AWS CLI to get a set of temporary security credentials. <br> Which of the following must be set in the environment variables or AWS configuration file to authenticate to AWS?",
+      "Option1": "AccessKeyld SecretAccessKey, and AssumedRoleld",
+      "Option2": "Userld, Session Token, and AssumedRoleld",
+      "Option3": "AccessKeyld, SecretAccessKey, and Session Token",
+      "Option4": "Userld, Session Token and Credentials",
+      "Correct Answer": 3
+    },
+    "Question13": {
+      "Question": "A company has designed a serverless application that uses Amazon Simple Queue Service (Amazon SQS) and an AWS Lambda function. The application receives data in an SQS queue on the last day of every month. The function successfully processes all the data in the queue within 1 day. <br> A detailed AWS bill shows a large number of SQS API requests throughout the month, even though the queue receives data only on the last day of the month. <br> What is the root cause of the extra API requests?",
+      "Option1": "Lambda is using long polling to check for messages in the SQS queue.",
+      "Option2": "The SQS queue is sending ping messages to Lambda.",
+      "Option3": "The function is not automatically deleting the messages from the SQS queue.",
+      "Option4": "Visibility timeout is not set to 0 to remove the extra API requests.",
+      "Correct Answer": 1
+    },
+    "Question14": {
+      "Question": "A company set up a continuous build process that uses AWS CodeBuild and AWS CodeCommit. <br> During the development phase, developers are frequently pushing code and causing significant build failures. The company wants a solution that will build code before the developers push the code to the main branch. <br> Which solution meets these requirements MOST cost-effectively?",
+      "Option1": "Configure am Amazon EC2 instance with the CodeBuild agent to build the code.",
+      "Option2": "Configure CodeBuild jobs on AWS for each branch build process.",
+      "Option3": "Configure the CodeBuild agent to build the code in the local system.",
+      "Option4": "Configure a Jenkins plugin for CodeBuild to run the code build process",
+      "Correct Answer": 3
+    },
+    "Question15": {
+      "Question": "A developer is writing a mobile application that allows users to view images from an S3 bucket. <br> The users must be able to log in with their Amazon login, as well as supported social media accounts. <br> How can the developer provide this authentication functionality?",
+      "Option1": "Use Amazon Cognito with web identity federation.",
+      "Option2": "Use Amazon Cognito with SAML-based identity federation.",
+      "Option3": "Use IAM access keys and secret keys in the application code to allow Get* on the S3 bucket.",
+      "Option4": "Use AWS STS AssumeRole in the application code and assume a role with Get* permissions on the S3 bucket.",
+      "Correct Answer": 1
+    },
+    "Question16": {
+      "Question": "A developer needs to modify an application architecture to meet new functional requirements. <br> Application data is stored in Amazon DynamoDB and processed for analysis in a nightly batch. The system analysts do not want to wait until the next day to view the processed data and have asked to have it available in near-real time. <br> Which application architecture pattern would enable the data to be processed as it is received?",
+      "Option1": "Event driven",
+      "Option2": "Client-server driven",
+      "Option3": "Fan-out driven",
+      "Option4": "Schedule driven",
+      "Correct Answer": 1
+    },
+    "Question17": {
+      "Question": "A media company is using Amazon API Gateway to manage microservices that are implemented as AWS Lambda functions. The company's development team is planning to roll out another version of its API. To avoid affecting existing users when the new API is deployed, the company wants to give all users a 3-month period to migrate from the old API version to the new API version. <br> Which implementation strategy should the company use to achieve this goal?",
+      "Option1": "Update the Lambda functions. Configure the API to use Lambda proxy integration.",
+      "Option2": "Update the Lambda functions. Provide the API client with the new Lambda endpoints.",
+      "Option3": "Use API Gateway to deploy a new stage that uses updated Lambda functions and provides users with a new URL",
+      "Option4": "Use API Gateway to redirect requests based on a request header to updated Lambda functions. Configure a 90-day expiration on the old API",
+      "Correct Answer": 3
+    },
+    "Question18": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question19": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question20": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question21": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question22": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question23": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question24": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question25": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question26": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question27": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question28": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question29": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question29": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question30": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question31": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question32": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question33": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question34": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question35": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question36": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question37": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question38": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question39": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question40": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question41": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question42": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question43": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question44": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question45": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question46": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question47": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question48": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question49": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question50": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question51": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question52": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question53": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question54": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question55": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question56": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question57": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question58": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question59": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question60": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question61": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question62": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question63": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question64": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question65": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question66": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question67": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question68": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question69": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question70": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question71": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question72": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question73": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question74": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    },
+    "Question75": {
+      "Question": "",
+      "Option1": "",
+      "Option2": "",
+      "Option3": "",
+      "Option4": "",
+      "Correct Answer": 2
+    }
+  },
+
+
   "Exam2": {
     "id": 1,
     "quesNum": 75,
@@ -611,7 +1226,7 @@
       "Correct Answer": 1
     }
   },
-  "Exam1": {
+  "Exam3": {
     "id": 1,
     "quesNum": 75,
     "Question1": {
